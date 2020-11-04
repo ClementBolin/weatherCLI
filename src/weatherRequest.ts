@@ -1,7 +1,11 @@
 import { OutgoingHttpHeaders } from 'http';
 import OAuth from 'oauth';
+import { TodayWeather } from './today';
 
-export function WeatherRequest(): any {
+const ora = require('ora');
+
+export function WeatherRequest(location: string, today: boolean): any {
+    const spinner = ora('Loading weather ☀️⛈').start();
     const header: OutgoingHttpHeaders = {
         "X-Yahoo-App-Id": "ciXphbG0"
     }
@@ -17,7 +21,7 @@ export function WeatherRequest(): any {
         header
     );
     request.get(
-        'https://weather-ydn-yql.media.yahoo.com/forecastrss?location=paris,fr&format=json',
+        `https://weather-ydn-yql.media.yahoo.com/forecastrss?location=${location}&format=json`,
         "",
         "",
         function (err, data, result) {
@@ -29,7 +33,9 @@ export function WeatherRequest(): any {
                     item.low = Math.floor((item.low - 32) * 5/9);
                     item.high = Math.floor((item.high - 32) * 5/9);
                 })
-                console.log(dataJson)
+                spinner.stop();
+                if (today == true)
+                    TodayWeather(dataJson)
             }
         }
     )
