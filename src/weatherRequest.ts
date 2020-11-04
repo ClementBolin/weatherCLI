@@ -1,5 +1,6 @@
 import { OutgoingHttpHeaders } from 'http';
 import OAuth from 'oauth';
+import { ForecastWeather } from './forecast';
 import { TodayWeather } from './today';
 
 const ora = require('ora');
@@ -36,6 +37,8 @@ export function WeatherRequest(location: string, today: boolean): any {
                 spinner.stop();
                 if (today == true)
                     TodayWeather(dataJson)
+                else 
+                    ForecastWeather(dataJson);
             }
         }
     )

@@ -26,6 +26,8 @@ function main() {
     if (args.t || args.today) {
         WeatherRequest("Paris,fr", true);
         return;
+    } else if (args.f || args.forecast) {
+        WeatherRequest("Paris,fr", false)
     } else {
         help();
         return;
