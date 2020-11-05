@@ -6,8 +6,8 @@ WORKDIR /app
 
 COPY . /app
 
-# RUN npm install --save
-# RUN npm start
+RUN npm install --save
+RUN npm start
 
 # PORT
 EXPOSE 8888

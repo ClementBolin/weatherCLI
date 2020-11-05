@@ -20,7 +20,7 @@ function main() {
     }
     if (args.help || args.h) {
         help("help");
-        return
+        process.exit(0)
     }
     if (args.t || args.today) {
         WeatherRequest(location, true, unit);
@@ -29,7 +29,7 @@ function main() {
         WeatherRequest(location, false, unit)
     } else {
         help("help");
-        return;
+        process.exit(0);
     }
 }
 
