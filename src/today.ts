@@ -5,10 +5,9 @@ export function TodayWeather(dataJson: any) {
     const yy = String(today.getFullYear());
     const date = dd + '/' + mm + '/' + yy;
 
-    console.log(`
-weather of the day (${date}):
+    console.log(
+`weather of the day (${date}):
     min temperature: ${dataJson.forecasts[0].low}
     max temperature: ${dataJson.forecasts[0].high}
-    descib of the day: ${dataJson.forecasts[0].text}
-    `);
+    descib of the day: ${dataJson.forecasts[0].text}`);
 }
