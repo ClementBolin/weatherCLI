@@ -15,15 +15,33 @@ export function checkInstall(): boolean {
     return (status);
 }
 
+const readLine = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
 export function install() {
     const directoryPath = path.join(os.homedir());
-    const readLine = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
-    readLine.question("enter your current location <city,country> example: \"paris,fr\"\n> ", input => {
-        fs.appendFileSync(directoryPath + "/.weatherCLI_config", input);
-        readLine.close()
-        console.log("weather install you can run following command : weather -t");
+    let location = "";
+    let measure = "";
+
+    readLine.question("Enter your current location <city,country> example: \"paris,fr\"\n> ", input => {
+        location = input;
+        if (location.includes(',')) {
+            readLine.question("which measure you wish to use (°C or °F)\n>", input => {
+                measure = input;
+                if (measure !== '°C' && measure !== '°F')
+                install();
+                else {
+                    fs.appendFileSync(directoryPath + "/.weatherCLI_config", JSON.stringify({
+                        location: location,
+                        measure: measure
+                    }));
+                    console.log("weather install you can run following command : weather -t");
+                    readLine.close()
+                }
+            })
+        } else
+            install()
     })
 }

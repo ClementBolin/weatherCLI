@@ -5,7 +5,7 @@ import { TodayWeather } from './today';
 
 const ora = require('ora');
 
-export function WeatherRequest(location: string, today: boolean): any {
+export function WeatherRequest(location: string, today: boolean, unit: string): any {
     const spinner = ora('Loading weather ☀️⛈').start();
     const header: OutgoingHttpHeaders = {
         "X-Yahoo-App-Id": "ciXphbG0"
@@ -30,15 +30,21 @@ export function WeatherRequest(location: string, today: boolean): any {
                 console.log(err);
             else {
                 let dataJson = JSON.parse(String(data));
-                dataJson.forecasts.map((item: any, i: number) => {
-                    item.low = Math.floor((item.low - 32) * 5/9);
-                    item.high = Math.floor((item.high - 32) * 5/9);
-                })
+                if (unit === '°C') {
+                    dataJson.forecasts.map((item: any, i: number) => {
+                        item.low = Math.floor((item.low - 32) * 5/9);
+                        item.high = Math.floor((item.high - 32) * 5/9);
+                    })
+                }
                 spinner.stop();
-                if (today == true)
-                    TodayWeather(dataJson)
-                else 
-                    ForecastWeather(dataJson);
+                if (today == true) {
+                    TodayWeather(dataJson, unit)
+                    process.exit(0)
+                }
+                else {
+                    ForecastWeather(dataJson, unit);
+                    process.exit(0)
+                }
             }
         }
     )

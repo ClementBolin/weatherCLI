@@ -9,8 +9,7 @@ export function getLocation(args: any): string {
     else if (args.location)
         location = String(args.location)
     else
-        location = String(fs.readFileSync(os.homedir() + "/.weatherCLI_config"))
-
+        location = JSON.parse(String(fs.readFileSync(os.homedir() + "/.weatherCLI_config"))).location;
     // Check valid location
     if (location.includes(',') == false) {
         help("location");

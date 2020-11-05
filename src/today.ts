@@ -1,4 +1,4 @@
-export function TodayWeather(dataJson: any) {
+export function TodayWeather(dataJson: any, unit: string) {
     const today = new Date();
     const dd = String(today.getDate()).padStart(2, '0');
     const mm = String(today.getMonth()).padStart(2, '0');
@@ -7,7 +7,7 @@ export function TodayWeather(dataJson: any) {
 
     console.log(
 `weather of the day (${date}):
-    min temperature: ${dataJson.forecasts[0].low}
-    max temperature: ${dataJson.forecasts[0].high}
+    min temperature: ${dataJson.forecasts[0].low}${unit}
+    max temperature: ${dataJson.forecasts[0].high}${unit}
     descib of the day: ${dataJson.forecasts[0].text}`);
 }
