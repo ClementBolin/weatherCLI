@@ -1,3 +1,6 @@
+import { GetEmojy } from './utils';
+import emoji from 'node-emoji';
+
 export function TodayWeather(dataJson: any, unit: string) {
     const today = new Date();
     const dd = String(today.getDate()).padStart(2, '0');
@@ -6,8 +9,8 @@ export function TodayWeather(dataJson: any, unit: string) {
     const date = dd + '/' + mm + '/' + yy;
 
     console.log(
-`weather of the day (${date}):
+`weather of the day (${date}) ${emoji.get('earth_africa')}:
     min temperature: ${dataJson.forecasts[0].low}${unit}
     max temperature: ${dataJson.forecasts[0].high}${unit}
-    descib of the day: ${dataJson.forecasts[0].text}`);
+    descib of the day: ${dataJson.forecasts[0].text} ${GetEmojy(dataJson.forecasts[0].text)}`);
 }

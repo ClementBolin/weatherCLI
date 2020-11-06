@@ -2,11 +2,12 @@ import { OutgoingHttpHeaders } from 'http';
 import OAuth from 'oauth';
 import { ForecastWeather } from './forecast';
 import { TodayWeather } from './today';
+import emoji from 'node-emoji';
 
 const ora = require('ora');
 
 export function WeatherRequest(location: string, today: boolean, unit: string): any {
-    const spinner = ora('Loading weather ☀️⛈').start();
+    const spinner = ora(`Loading weather ${emoji.get('☀️')}`).start();
     const header: OutgoingHttpHeaders = {
         "X-Yahoo-App-Id": "ciXphbG0"
     }
