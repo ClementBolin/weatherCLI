@@ -57,6 +57,8 @@ export function GetEmojy(type: string): string {
             return (emoji.get('cloud'))
         case 'Rain And Snow':
             return (emoji.get('snow_cloud'))
+        case 'Sunny':
+            return (emoji.get('☀️'))
         default:
             return ('')
     }
