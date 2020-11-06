@@ -5,7 +5,7 @@ import { checkInstall, install } from './install';
 import { getLocation, help } from './utils';
 import { WeatherRequest } from './weatherRequest';
 
-function main() {
+export default function main() {
     const args = minimist(process.argv.slice(2));
     
     if (checkInstall() == false) {
@@ -32,5 +32,3 @@ function main() {
         process.exit(0);
     }
 }
-
-main();

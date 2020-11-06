@@ -1,11 +1,13 @@
 {
-  "name": "weather_cli",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "@clem_b/weather",
+  "version": "1.0.6",
+  "description": "weather cli",
+  "main": "build/main.js",
+  "types": "build/main.d.ts",
+  "homepage": "https://github.com/ClementBolin/weatherCLI#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ClementBolin/weatherCLI"
+    "url": "git+https://github.com/ClementBolin/weatherCLI.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -13,11 +15,16 @@
     "start": "npm run build && node build/mai.js"
   },
   "bin": {
-    "outside": "bin/outside"
+    "app": "bin/weatherCLI"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "weather",
+    "today",
+    "rain",
+    "sun"
+  ],
+  "author": "clem_b",
+  "license": "MIT",
   "devDependencies": {
     "@types/minimist": "^1.2.0",
     "@types/node": "^14.14.6",
@@ -27,6 +34,7 @@
     "tslint": "^6.1.3",
     "typescript": "^4.0.5"
   },
+  "prepublish": "npm run build",
   "dependencies": {
     "minimist": "^1.2.5",
     "oauth": "^0.9.15",
