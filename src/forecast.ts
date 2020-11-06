@@ -12,7 +12,7 @@ export function ForecastWeather(dataJson: any, unit: string) {
 `weather of the next 10 days ${emoji.get('earth_africa')}:`);
     dataJson.forecasts.map((item: any, i: number) => {
         if (i <= 10) {
-            console.log(`
+            console.log(`${item.day}
     min temperature: ${item.low}${unit}
     max temperature: ${item.high}${unit}
     descib of the day: ${item.text} ${GetEmojy(item.text)}`)
