@@ -1,9 +1,9 @@
 {
   "name": "@clem_b/weather",
-  "version": "1.0.6",
+  "version": "6.1.3",
   "description": "weather cli",
   "main": "build/main.js",
-  "types": "build/main.d.ts",
+  "typings": "build/main.d.ts",
   "homepage": "https://github.com/ClementBolin/weatherCLI#readme",
   "repository": {
     "type": "git",
@@ -15,7 +15,7 @@
     "start": "npm run build && node build/mai.js"
   },
   "bin": {
-    "app": "bin/weatherCLI"
+    "weatherCLI": "bin/weatherCLI"
   },
   "keywords": [
     "weather",
