@@ -12,7 +12,7 @@
     "url": "git+https://github.com/ClementBolin/weatherCLI.git"
   },
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest --coverage && rm -rf ./coverage",
     "build": "rimraf ./build && tsc",
     "start": "npm run build && node build/mai.js"
   },
