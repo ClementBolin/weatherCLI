@@ -35,3 +35,6 @@ jobs:
 
     - name: Run Unit Test
       run: npm run test
+    
+    - name: Install script
+      run: ./install.sh
