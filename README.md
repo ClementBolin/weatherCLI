@@ -1,3 +1,5 @@
+![Node.js CI](https://github.com/ClementBolin/weatherCLI/workflows/Node.js%20CI/badge.svg)
+
 # weatherCLI
 
 ## Why
