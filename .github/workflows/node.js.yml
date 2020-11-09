@@ -40,4 +40,4 @@ jobs:
       run: sudo ./install.sh
 
     - name: Run Script
-      run: echo -e "paris,fr\n°C" | ./weatherCLI 
+      run: echo -e "paris,fr\n°C" | weatherCLI 
