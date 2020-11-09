@@ -39,5 +39,5 @@ jobs:
     - name: Install script
       run: sudo ./install.sh
 
-   - name: Run App
-     run: echo -e "paris,fr\n°C" | weatherCLI 
+    - name: Run App
+      run: echo -e "paris,fr\n°C" | weatherCLI 
