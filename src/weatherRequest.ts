@@ -6,6 +6,7 @@ import emoji from 'node-emoji';
 
 const ora = require('ora');
 
+// Request to yahoo weather api and display data
 export function WeatherRequest(location: string, today: boolean, unit: string): any {
     const spinner = ora(`Loading weather ${emoji.get('☀️')}`).start();
     const header: OutgoingHttpHeaders = {

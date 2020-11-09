@@ -1,6 +1,7 @@
 import { GetEmojy } from './utils';
 import emoji from 'node-emoji';
 
+// Display today weather
 export function TodayWeather(dataJson: any, unit: string) {
     const today = new Date();
     const dd = String(today.getDate()).padStart(2, '0');

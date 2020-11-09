@@ -1,6 +1,7 @@
 import { GetEmojy } from './utils';
 import emoji from 'node-emoji';
 
+// Display weather forecast of the 10 next days
 export function ForecastWeather(dataJson: any, unit: string) {
     const today = new Date();
     const dd = String(today.getDate()).padStart(2, '0');

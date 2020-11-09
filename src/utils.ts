@@ -2,6 +2,7 @@ import fs from 'fs';
 import os from 'os';
 import emoji from 'node-emoji';
 
+// get location in .weatherCLI_config file
 export function getLocation(args: any): string {
     let location = "";
 
@@ -19,6 +20,7 @@ export function getLocation(args: any): string {
     return location;
 }
 
+// display help
 export function help(type: string) {
     if (type == "help") {
         console.log(
@@ -37,6 +39,10 @@ export function help(type: string) {
     }
 }
 
+/* 
+*   @comment Display emojy according to type 
+*
+*/
 export function GetEmojy(type: string): string {
     switch (type) {
         case 'Partly Cloudy':
@@ -59,6 +65,8 @@ export function GetEmojy(type: string): string {
             return (emoji.get('snow_cloud'))
         case 'Sunny':
             return (emoji.get('☀️'))
+        case 'Thunderstorms':
+            return (emoji.get('thunder'))
         default:
             return ('')
     }

@@ -15,7 +15,8 @@ function install() {
         mkdir /usr/local/lib/node_modules
     fi
     npm i --save
-    cp ../weatherCLI /usr/local/lib/node_modules
+    npm run build
+    cp -r ../weatherCLI /usr/local/lib/node_modules
     cd /usr/local/lib/node_modules/weatherCLI/
     cd /usr/local/bin
     ln -s /usr/local/lib/node_modules/weatherCLI/bin/weatherCLI weatherCLI
