@@ -42,3 +42,4 @@ jobs:
 
     - name: Run App
       run: echo -e "paris,fr\n°C" | weatherCLI 
+    - run: weatherCLI -t
