@@ -60,6 +60,7 @@ describe('test help function', () => {
     --forecast, -f \t\tshow 10 day weather forecast
     --version, -v \t\tshow package version
     --location, -l \t\tweather at this location, if it is not present, takes the location noted in the ~/.weatherCLI_config
+    --update, -u \t\tupdate location and measure in ~/..weatherCLI_config
     --help, -h \t\tshow help menu for a command`
             )
         })

@@ -3,6 +3,7 @@ import OAuth from 'oauth';
 import { ForecastWeather } from './forecast';
 import { TodayWeather } from './today';
 import emoji from 'node-emoji';
+import { GetClientID, GetClientSecret } from './config';
 
 const ora = require('ora');
 
@@ -16,8 +17,8 @@ export function WeatherRequest(location: string, today: boolean, unit: string): 
     var request = new OAuth.OAuth(
         "",
         "",
-        "dj0yJmk9SmcyTW5jSHBOamVhJmQ9WVdrOVkybFljR2hpUnpBbWNHbzlNQT09JnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PWFj",
-        '688fad1ac1799c16ceaf9be75c2c53736475eed2',
+        GetClientID(),
+        GetClientSecret(),
         "1.0",
         "",
         'HMAC-SHA1',

@@ -30,6 +30,7 @@ export function help(type: string) {
     --forecast, -f \t\tshow 10 day weather forecast
     --version, -v \t\tshow package version
     --location, -l \t\tweather at this location, if it is not present, takes the location noted in the ~/.weatherCLI_config
+    --update, -u \t\tupdate location and measure in ~/..weatherCLI_config
     --help, -h \t\tshow help menu for a command`)
     } else if (type == "location") {
         console.log(
@@ -39,10 +40,6 @@ export function help(type: string) {
     }
 }
 
-/* 
-*   @comment Display emojy according to type 
-*
-*/
 export function GetEmojy(type: string): string {
     switch (type) {
         case 'Partly Cloudy':

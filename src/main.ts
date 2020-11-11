@@ -1,7 +1,7 @@
 import os from 'os';
 import fs from 'fs';
 import minimist from 'minimist';
-import { checkInstall, install } from './install';
+import { checkInstall, install, update } from './install';
 import { getLocation, help } from './utils';
 import { WeatherRequest } from './weatherRequest';
 
@@ -17,6 +17,10 @@ export default function main() {
     if (args.version || args.v) {
         console.log("version 1.0.0");
         return
+    }
+    if (args.u || args.update) {
+        update()
+        process.exit(0)
     }
     if (args.help || args.h) {
         help("help");
