@@ -18,3 +18,10 @@ you can then launch the application with the following flags :
 
 ![](./assets/weatherG.gif)
 
+## Configuration
+
+When you run ```weatherCLI``` for the first time, the application asks you to configure the ```.weatherCLI_config``` file. In spite of the update flag two elements cannot still be modified by the CLI (client id and secret client)
+
+#### Change client ID and/or client Secret
+
+For change the ID client and/or the Secret client you have to open the ```~/.weatherCLI_config``` file and modify the corresponding fields. 
