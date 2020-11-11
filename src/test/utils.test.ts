@@ -42,6 +42,10 @@ describe('test get emoji function', () => {
     test('test with bad type', () => {
         expect(GetEmojy('bad type')).toBe('')
     })
+
+    test('test Thunderstorms emoji', () => {
+        expect(GetEmojy('Thunderstorms')).toBe(emoji.get('thunder'))
+    })
 })
 
 global.console.log = jest.fn();
