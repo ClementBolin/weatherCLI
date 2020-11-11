@@ -82,4 +82,11 @@ describe('test getLocation function', () => {
         const res = getLocation(args)
         expect(res).toBe("paris,fr")
     })
+    test('lcoation without error and location flag', () => {
+        let args = {
+            location: "paris,fr",
+        }
+        const res = getLocation(args);
+        expect(res).toBe("paris,fr")
+    })
 })
