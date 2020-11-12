@@ -2,6 +2,7 @@ import fs from 'fs';
 import path  from 'path';
 import os from 'os';
 import readline from 'readline';
+import { GetClientID, GetClientSecret } from './config';
 
 export function checkInstall(): boolean {
     const directoryPath = path.join(os.homedir());
@@ -30,7 +31,7 @@ export function install() {
     readLine.question("Enter your current location <city,country> example: \"paris,fr\"\n> ", input => {
         location = input;
         if (location.includes(',')) {
-            readLine.question("which measure you wish to use (°C or °F)\n>", input => {
+            readLine.question("which measure you wish to use (°C or °F)\n> ", input => {
                 measure = input;
                 if (measure !== '°C' && measure !== '°F')
                     install();
@@ -57,31 +58,24 @@ export function install() {
 }
 
 export function update() {
-    const readLineUpdate = readline.createInterface({
+    const readUpdate = readline.createInterface({
         input: process.stdin,
         output: process.stdout
-    });
+    })
     const directoryPath = path.join(os.homedir());
-    let location = "";
-    let measure = "";
+    const clientID = GetClientID()
+    const clientSecret = GetClientSecret()
+    let location = ""
+    let measure = ""
 
-    readLineUpdate.question("Enter your current location <city,country> example: \"paris,fr\"\n> ", input => {
-        location = input;
+    readUpdate.question("Update your current location <city,country> example: \"paris,fr\"\n> ", input => {
+        location = input
         if (location.includes(',')) {
-            readLineUpdate.question("which measure you wish to use (°C or °F)\n>", input => {
-                measure = input;
-                if (measure !== '°C' && measure !== '°F')
-                update();
-                else {
-                    fs.writeFileSync(directoryPath + "/.weatherCLI_config", JSON.stringify({
-                        location: location,
-                        measure: measure
-                    }));
-                    console.log("weatherCLI is update you can run following command : weatherCLI -t");
-                    readLineUpdate.close()
-                }
+            readUpdate.question("Update your measure that you want to use (°C or °F)", intpu => {
+                if (measure !== '°C' || measure !== '°C')
+                    update()
+                console.log("location: " + location + " measure: " + measure)
             })
-        } else
-            update()
+        }
     })
 }
