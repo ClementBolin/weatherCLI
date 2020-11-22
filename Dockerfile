@@ -7,7 +7,9 @@ WORKDIR /app
 COPY . /app
 
 RUN npm install --save
-RUN npm start
+RUN npm run build
+RUN echo -e "paris,fr\n°C" | ./bin/weatherCLI
 
 # PORT
+CMD [ "echo -e \"paris,fr\n°C\" | ./bin/weatherCLI && ./bin/weatherCLI -t" ]
 EXPOSE 8888
